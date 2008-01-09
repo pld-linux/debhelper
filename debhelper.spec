@@ -1,4 +1,5 @@
-Summary:	helper programs for debian/rules
+Summary:	Helper programs for debian/rules
+Summary(pl.UTF-8):	Programy pomocnicze dla debian/rules
 Name:		debhelper
 Version:	5.0.62
 Release:	0.1
@@ -22,6 +23,13 @@ files, fix file permissions, integrate your package with the Debian
 menu system, debconf, doc-base, etc.
 
 Most Debian packages use debhelper as part of their build process.
+
+%description -l pl.UTF-8
+Zestaw programów, których można używać w pliku debian/rules do
+automatyzacji często wykonywanych zadań związanych z budowaniem
+pakietów Debiana. Zawiera programy do instalowania różnych plików
+pakietu, kompresji plików, poprawiania uprawnień plików, integracji
+pakietu z systemem menu Debiana, debconfem, doc-base itp.
 
 %prep
 %setup -q -n %{name}
