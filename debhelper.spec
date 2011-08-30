@@ -1,17 +1,23 @@
+#
+# Conditional build:
+%bcond_with	tests		# build with tests
+
 Summary:	Helper programs for debian/rules
 Summary(pl.UTF-8):	Programy pomocnicze dla debian/rules
 Name:		debhelper
-Version:	5.0.62
-Release:	0.1
+Version:	8.9.6
+Release:	1
 License:	GPL v2
 Group:		Applications
 Source0:	ftp://ftp.debian.org/debian/pool/main/d/debhelper/%{name}_%{version}.tar.gz
-# Source0-md5:	7c611f49e95db3638f0bdef2458677ed
+# Source0-md5:	8056654d4cd671cbb24ff0d2c1cfbd97
 URL:		http://kitenet.net/~joey/code/debhelper/
 BuildRequires:	dpkg
 BuildRequires:	fakeroot
 BuildRequires:	perl-tools-pod
 BuildRequires:	po4a
+# uses man-db specific --recode option in dh_installman
+BuildRequires:	man-db
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -35,16 +41,16 @@ pakietu z systemem menu Debiana, debconfem, doc-base itp.
 %setup -q -n %{name}
 
 %build
+%{!?with_tests:DEB_BUILD_OPTIONS=nocheck} \
 fakeroot debian/rules binary
-mv debian/debhelper/usr/share/doc/debhelper doc
+mv debian/debhelper%{_docdir}/debhelper doc
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT
 cp -a debian/debhelper/* $RPM_BUILD_ROOT
 
-rm -rf $RPM_BUILD_ROOT/DEBIAN
-rm -rf $RPM_BUILD_ROOT%{_docdir}/debhelper
+%{__rm} -r $RPM_BUILD_ROOT/DEBIAN
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -52,17 +58,25 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc doc/* examples debian/changelog
+%attr(755,root,root) %{_bindir}/dh
 %attr(755,root,root) %{_bindir}/dh_*
 %{_datadir}/%{name}
 
 %dir %{perl_vendorlib}/Debian
 %dir %{perl_vendorlib}/Debian/Debhelper
+%{perl_vendorlib}/Debian/Debhelper/Dh_Buildsystems.pm
 %{perl_vendorlib}/Debian/Debhelper/Dh_Getopt.pm
 %{perl_vendorlib}/Debian/Debhelper/Dh_Lib.pm
 %{perl_vendorlib}/Debian/Debhelper/Dh_Version.pm
+%{perl_vendorlib}/Debian/Debhelper/Sequence
+%{perl_vendorlib}/Debian/Debhelper/Buildsystem
+%{perl_vendorlib}/Debian/Debhelper/Buildsystem.pm
 
+%{_mandir}/man1/dh.1*
 %{_mandir}/man1/dh_*.1*
+%lang(es) %{_mandir}/es/man1/dh.1*
 %lang(es) %{_mandir}/es/man1/dh_*.1*
+%lang(fr) %{_mandir}/fr/man1/dh.1*
 %lang(fr) %{_mandir}/fr/man1/dh_*.1*
 %{_mandir}/man7/debhelper.7*
 %lang(es) %{_mandir}/es/man7/debhelper.7*
