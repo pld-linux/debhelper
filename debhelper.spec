@@ -5,12 +5,13 @@
 Summary:	Helper programs for debian/rules
 Summary(pl.UTF-8):	Programy pomocnicze dla debian/rules
 Name:		debhelper
-Version:	8.9.6
+Version:	9.20130720
 Release:	1
-License:	GPL v2
-Group:		Applications
+License:	GPL v2+
+Group:		Development/Tools
 Source0:	ftp://ftp.debian.org/debian/pool/main/d/debhelper/%{name}_%{version}.tar.gz
-# Source0-md5:	8056654d4cd671cbb24ff0d2c1cfbd97
+# Source0-md5:	7ca139c0b53d604c41e423fea4fecda4
+Patch0:		%{name}-pod.patch
 URL:		http://kitenet.net/~joey/code/debhelper/
 BuildRequires:	dpkg
 BuildRequires:	fakeroot
@@ -39,6 +40,7 @@ pakietu z systemem menu Debiana, debconfem, doc-base itp.
 
 %prep
 %setup -q -n %{name}
+%patch0 -p1
 
 %build
 %{!?with_tests:DEB_BUILD_OPTIONS=nocheck} \
@@ -57,7 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc doc/* examples debian/changelog
+%doc doc/*
 %attr(755,root,root) %{_bindir}/dh
 %attr(755,root,root) %{_bindir}/dh_*
 %{_datadir}/%{name}
@@ -74,10 +76,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_mandir}/man1/dh.1*
 %{_mandir}/man1/dh_*.1*
+%lang(de) %{_mandir}/de/man1/dh.1*
+%lang(de) %{_mandir}/de/man1/dh_*.1*
 %lang(es) %{_mandir}/es/man1/dh.1*
 %lang(es) %{_mandir}/es/man1/dh_*.1*
 %lang(fr) %{_mandir}/fr/man1/dh.1*
 %lang(fr) %{_mandir}/fr/man1/dh_*.1*
 %{_mandir}/man7/debhelper.7*
+%lang(de) %{_mandir}/de/man7/debhelper.7*
 %lang(es) %{_mandir}/es/man7/debhelper.7*
 %lang(fr) %{_mandir}/fr/man7/debhelper.7*
