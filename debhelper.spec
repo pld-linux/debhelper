@@ -5,13 +5,12 @@
 Summary:	Helper programs for debian/rules
 Summary(pl.UTF-8):	Programy pomocnicze dla debian/rules
 Name:		debhelper
-Version:	9.20130720
+Version:	9.20131110
 Release:	1
 License:	GPL v2+
 Group:		Development/Tools
 Source0:	ftp://ftp.debian.org/debian/pool/main/d/debhelper/%{name}_%{version}.tar.gz
-# Source0-md5:	7ca139c0b53d604c41e423fea4fecda4
-Patch0:		%{name}-pod.patch
+# Source0-md5:	e8915d02c73a414adaad96a8a1fbdf78
 URL:		http://kitenet.net/~joey/code/debhelper/
 BuildRequires:	dpkg
 BuildRequires:	fakeroot
@@ -40,7 +39,6 @@ pakietu z systemem menu Debiana, debconfem, doc-base itp.
 
 %prep
 %setup -q -n %{name}
-%patch0 -p1
 
 %build
 %{!?with_tests:DEB_BUILD_OPTIONS=nocheck} \
