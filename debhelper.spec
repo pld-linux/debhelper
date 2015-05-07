@@ -81,7 +81,10 @@ rm -rf $RPM_BUILD_ROOT
 %lang(es) %{_mandir}/es/man1/dh_*.1*
 %lang(fr) %{_mandir}/fr/man1/dh.1*
 %lang(fr) %{_mandir}/fr/man1/dh_*.1*
+%lang(pt) %{_mandir}/pt/man1/dh.1*
+%lang(pt) %{_mandir}/pt/man1/dh_*.1*
 %{_mandir}/man7/debhelper.7*
 %lang(de) %{_mandir}/de/man7/debhelper.7*
 %lang(es) %{_mandir}/es/man7/debhelper.7*
 %lang(fr) %{_mandir}/fr/man7/debhelper.7*
+%lang(pt) %{_mandir}/pt/man7/debhelper.7*
