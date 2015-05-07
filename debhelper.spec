@@ -5,19 +5,21 @@
 Summary:	Helper programs for debian/rules
 Summary(pl.UTF-8):	Programy pomocnicze dla debian/rules
 Name:		debhelper
-Version:	9.20150101
+Version:	9.20150502
 Release:	1
 License:	GPL v2+
 Group:		Development/Tools
-Source0:	ftp://ftp.debian.org/debian/pool/main/d/debhelper/%{name}_%{version}.tar.gz
-# Source0-md5:	10e53fc2d752bddc5bb66bfeaba7582e
+Source0:	ftp://ftp.debian.org/debian/pool/main/d/debhelper/%{name}_%{version}.tar.xz
+# Source0-md5:	07f1eb732e831f67f1ba03a04016c4ab
 URL:		http://joeyh.name/code/debhelper/
 BuildRequires:	dpkg
 BuildRequires:	fakeroot
-BuildRequires:	perl-tools-pod
-BuildRequires:	po4a
 # uses man-db specific --recode option in dh_installman
 BuildRequires:	man-db
+BuildRequires:	perl-tools-pod
+BuildRequires:	po4a
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
