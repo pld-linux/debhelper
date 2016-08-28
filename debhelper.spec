@@ -5,12 +5,12 @@
 Summary:	Helper programs for debian/rules
 Summary(pl.UTF-8):	Programy pomocnicze dla debian/rules
 Name:		debhelper
-Version:	9.20150628
+Version:	9.20160814
 Release:	1
 License:	GPL v2+
 Group:		Development/Tools
 Source0:	ftp://ftp.debian.org/debian/pool/main/d/debhelper/%{name}_%{version}.tar.xz
-# Source0-md5:	2f4153c555a9cd624fb2e4b7adab216b
+# Source0-md5:	2e6a77d0f969d2421260f3f75a2cf1ff
 URL:		http://joeyh.name/code/debhelper/
 BuildRequires:	dpkg
 BuildRequires:	fakeroot
@@ -87,6 +87,5 @@ rm -rf $RPM_BUILD_ROOT
 %lang(pt) %{_mandir}/pt/man1/dh_*.1*
 %{_mandir}/man7/debhelper.7*
 %lang(de) %{_mandir}/de/man7/debhelper.7*
-%lang(es) %{_mandir}/es/man7/debhelper.7*
 %lang(fr) %{_mandir}/fr/man7/debhelper.7*
 %lang(pt) %{_mandir}/pt/man7/debhelper.7*
