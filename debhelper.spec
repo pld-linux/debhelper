@@ -9,7 +9,7 @@ Version:	9.20160814
 Release:	1
 License:	GPL v2+
 Group:		Development/Tools
-Source0:	ftp://ftp.debian.org/debian/pool/main/d/debhelper/%{name}_%{version}.tar.xz
+Source0:	http://ftp.debian.org/debian/pool/main/d/debhelper/%{name}_%{version}.tar.xz
 # Source0-md5:	2e6a77d0f969d2421260f3f75a2cf1ff
 URL:		http://joeyh.name/code/debhelper/
 BuildRequires:	dpkg
